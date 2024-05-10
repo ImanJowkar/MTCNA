@@ -66,3 +66,46 @@ add action=masquerade chain=srcna
 
 
 ```
+
+# Switch  config
+
+```
+hostname SW1
+vtp mode off
+
+vlan 10,20,30
+
+int range eth 0/0-1
+
+ switchport access vlan 10
+ switchport mode access
+ switchport nonegotiate
+
+
+
+int range eth 1/1-2
+interface Ethernet1/1
+ switchport access vlan 30
+ switchport mode access
+ switchport nonegotiate
+
+
+
+interface Ethernet1/3
+ switchport access vlan 40
+ switchport mode access
+ switchport nonegotiate
+
+
+! dhcp snooping config for defining trust interface
+
+ip dhcp snooping
+ip dhcp snooping vlan 10,30,40
+interface ethernet 3/3
+ip dhcp snooping trust 
+ip dhcp snooping limit rate 202
+
+do sh ip dhcp snooping
+
+
+```
