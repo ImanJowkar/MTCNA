@@ -35,6 +35,7 @@ add address-pool=dhcp_pool0 interface=vlan10 name=dhcp1
 add address-pool=dhcp_pool1 interface=vlan30 name=dhcp2
 add address-pool=dhcp_pool2 interface=vlan40 name=dhcp3
 
+# add dhcp alert for notice when another dhcp server added on vlan 10 only, you can add for allert on all vlans
 
 /ip dhcp-server alert
 add disabled=no interface=vlan10 on-alert=\
