@@ -28,7 +28,7 @@ tool e-mail send to="user@gmail.com" subject="backup-mikrotik" tls=starttls body
 /system backup save name=$backupName encryption=aes-sha256 password=12345
 delay delay-time=3
 put $to
-/tool e-mail send to=$to subject=$subject body=$body file=$backupName tls=starttls from="zbx@ayyza.com"
+/tool e-mail send to=$to subject=$subject body=$body file=$backupName tls=starttls from="test@example.com"
 
 ```
 
